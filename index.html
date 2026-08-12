@@ -19,35 +19,45 @@
         <div class="input-section">
             <h2>Calculate your annual car costs</h2>
 
-        <div class="inputs-row">
+            <div class="inputs-row">
 
-    <div class="input-group">
-        <label for="km">Annual kilometers:</label>
-        <input type="number" id="km" placeholder="15000">
-    </div>
+                <div class="input-group">
+                    <label for="km">Annual kilometers:</label>
+                    <input type="number" id="km" placeholder="15000">
+                </div>
 
-    <div class="input-group">
-        <label for="fuel">Fuel price per liter:</label>
-        <input type="number" id="fuel" step="0.01" placeholder="1.70">
-    </div>
+                <div class="input-group">
+                    <label for="fuel">Fuel price per liter:</label>
+                    <input type="number" id="fuel" step="0.01" placeholder="1.70">
+                </div>
 
-</div>
+            </div>
 
-        <br><br>
+            <br><br>
 
-        <div class="car-selection">
+            <div class="car-selection">
 
-    <label for="car">Choose your car:</label>
+                <label for="car">Choose your car:</label>
 
-    <select id="car">
-        <option>Lamborghini Aventador SVJ</option>
-        <option>Porsche 911 992 GT3RS</option>
-        <option>Ferrari 812 Superfast</option>
-        <option>McLaren 720S</option>
-        <option>BMW M4 Competition</option>
-    </select>
+                <select id="car">
+                    <option>Alpine A110</option>
+                    <option>Aston Martin V8 Vantage</option>
+                    <option>Audi R8 V10</option>
+                    <option>Audi RS6 Avant</option>
+                    <option>BMW M2</option>
+                    <option>BMW M4 Competition</option>
+                    <option>Bugatti Chiron</option>
+                    <option>Ferrari 488 Pista</option>
+                    <option>Ferrari 812 Superfast</option>
+                    <option>Lamborghini Aventador SVJ</option>
+                    <option>Lamborghini Huracán STO</option>
+                    <option>Lamborghini Revuelto</option>
+                    <option>McLaren 720S</option>
+                    <option>Porsche 911 992 GT3RS</option>
+                    <option>Porsche 911 Turbo S</option>
+                </select>
 
-</div>
+            </div>
 
             <br><br>
         </div>
@@ -65,42 +75,108 @@
         const cars = [
             {
                 name: "Lamborghini Aventador SVJ",
-                insurance: 5000,
-                maintenance: 4000,
-                fuel_consumption: 20,
-                tires: 3700
+                insurance: 6000,
+                maintenance: 7000,
+                fuel_consumption: 18.0,
+                tires: 5500
             },
-
             {
                 name: "Porsche 911 992 GT3RS",
                 insurance: 3500,
-                maintenance: 2500,
-                fuel_consumption: 13,
-                tires: 3400
+                maintenance: 4000,
+                fuel_consumption: 13.2,
+                tires: 4000
             },
-
             {
                 name: "Ferrari 812 Superfast",
-                insurance: 4000,
-                maintenance: 3000,
-                fuel_consumption: 16,
-                tires: 3000
+                insurance: 5000,
+                maintenance: 6000,
+                fuel_consumption: 14.9,
+                tires: 4000
             },
-
             {
                 name: "McLaren 720S",
-                insurance: 3500,
-                maintenance: 3000,
-                fuel_consumption: 12,
-                tires: 2400
+                insurance: 4000,
+                maintenance: 5000,
+                fuel_consumption: 12.2,
+                tires: 3000
             },
-
             {
                 name: "BMW M4 Competition",
                 insurance: 2000,
-                maintenance: 1000,
-                fuel_consumption: 10,
+                maintenance: 1500,
+                fuel_consumption: 10.0,
                 tires: 2000
+            },
+            {
+                name: "Lamborghini Huracán STO",
+                insurance: 5000,
+                maintenance: 5500,
+                fuel_consumption: 15.0,
+                tires: 4500
+            },
+            {
+                name: "Ferrari 488 Pista",
+                insurance: 5000,
+                maintenance: 5500,
+                fuel_consumption: 12.8,
+                tires: 4000
+            },
+            {
+                name: "Audi R8 V10",
+                insurance: 3000,
+                maintenance: 3500,
+                fuel_consumption: 13.0,
+                tires: 3000
+            },
+            {
+                name: "BMW M2",
+                insurance: 1800,
+                maintenance: 1300,
+                fuel_consumption: 10.0,
+                tires: 1800
+            },
+            {
+                name: "Lamborghini Revuelto",
+                insurance: 7000,
+                maintenance: 7500,
+                fuel_consumption: 17.8,
+                tires: 5000
+            },
+            {
+                name: "Porsche 911 Turbo S",
+                insurance: 4000,
+                maintenance: 3500,
+                fuel_consumption: 11.6,
+                tires: 3500
+            },
+            {
+                name: "Audi RS6 Avant",
+                insurance: 2500,
+                maintenance: 2200,
+                fuel_consumption: 12.5,
+                tires: 2500
+            },
+            {
+                name: "Aston Martin V8 Vantage",
+                insurance: 3500,
+                maintenance: 3500,
+                fuel_consumption: 12.5,
+                tires: 3000
+            },
+            {
+                name: "Bugatti Chiron",
+                insurance: 25000,
+                maintenance: 25000,
+                fuel_consumption: 25.2,
+                tires: 30000
+            },
+            {
+                name: "Alpine A110",
+                insurance: 1200,
+                maintenance: 1000,
+                fuel_consumption: 6.9,
+                tires: 1200
             }
         ];
 
