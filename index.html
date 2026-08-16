@@ -89,6 +89,9 @@
                     <option>Porsche 911 GT2 RS</option>
                     <option>Porsche 911 Turbo S</option>
                 </select>
+                <div id="car-image-container">
+                    <img id="car-image" src="" alt="Selected car">
+                </div>
 
             </div>
 
@@ -99,6 +102,37 @@
         <p id="result"></p>
 
         <div id="details"></div>
+        <section class="comparison-section">
+
+            <h2>Compare two cars</h2>
+
+            <div class="comparison-selects">
+
+                <div class="comparison-car">
+                    <label for="car1">First car</label>
+
+                    <select id="car1">
+                        <!-- Cars will be added by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="comparison-car">
+                    <label for="car2">Second car</label>
+
+                    <select id="car2">
+                        <!-- Cars will be added by JavaScript -->
+                    </select>
+                </div>
+
+            </div>
+
+            <button onclick="compareCars()">
+                Compare
+            </button>
+
+            <div id="comparison-result"></div>
+
+        </section>
 
     </div>
 
@@ -210,8 +244,8 @@
                 maintenance: 1000,
                 fuel_consumption: 6.9,
                 tires: 1200
-            }
-                {
+            },
+            {
                 name: "Lamborghini Urus",
                 insurance: 3500,
                 maintenance: 3000,
@@ -283,10 +317,10 @@
             },
             {
                 name: "Aston Martin DBS",
-                insurance: 4500,
-                maintenance: 5000,
-                fuel_consumption: 13.5,
-                tires: 3500
+                insurance: 3500,
+                maintenance: 4500,
+                fuel_consumption: 15.0,
+                tires: 3000
             },
             {
                 name: "Pagani Huayra BC",
@@ -353,9 +387,181 @@
             }
         ];
 
+        function fillComparisonSelects() {
+
+            const car1 = document.getElementById("car1");
+            const car2 = document.getElementById("car2");
+
+            cars.forEach(car => {
+
+                const option1 = document.createElement("option");
+                option1.value = car.name;
+                option1.textContent = car.name;
+
+                const option2 = document.createElement("option");
+                option2.value = car.name;
+                option2.textContent = car.name;
+
+                car1.appendChild(option1);
+                car2.appendChild(option2);
+            });
+
+            // Deux voitures différentes par défaut
+            car2.selectedIndex = 1;
+        }
+        function compareCars() {
+
+            const selectedCar1 =
+                document.getElementById("car1").value;
+
+            const selectedCar2 =
+                document.getElementById("car2").value;
+
+            const car1 =
+                cars.find(car => car.name === selectedCar1);
+
+            const car2 =
+                cars.find(car => car.name === selectedCar2);
+
+            const annualKm =
+                Number(document.getElementById("km").value);
+
+            const fuelPrice =
+                Number(document.getElementById("fuel").value);
+
+            const fuelCost1 =
+                (annualKm / 100) *
+                car1.fuel_consumption *
+                fuelPrice;
+
+            const tiresCost1 =
+                (annualKm / tireLifeKm) *
+                car1.tires;
+
+            const total1 =
+                car1.insurance +
+                car1.maintenance +
+                fuelCost1 +
+                tiresCost1;
+
+
+            const fuelCost2 =
+                (annualKm / 100) *
+                car2.fuel_consumption *
+                fuelPrice;
+
+            const tiresCost2 =
+                (annualKm / tireLifeKm) *
+                car2.tires;
+
+            const total2 =
+                car2.insurance +
+                car2.maintenance +
+                fuelCost2 +
+                tiresCost2;
+
+
+            const difference =
+                Math.abs(total1 - total2);
+
+
+            let cheaperCar;
+
+            if (total1 < total2) {
+                cheaperCar = car1.name;
+            } else if (total2 < total1) {
+                cheaperCar = car2.name;
+            } else {
+                cheaperCar = "Both cars cost the same";
+            }
+
+
+            document.getElementById("comparison-result").innerHTML = `
+
+        <div class="comparison-card">
+
+            <div class="comparison-column">
+                <h3>${car1.name}</h3>
+
+                <p>
+                    Annual cost:
+                    <strong>${total1.toFixed(2)} €</strong>
+                </p>
+
+                <p>
+                    Monthly cost:
+                    <strong>${(total1 / 12).toFixed(2)} €</strong>
+                </p>
+            </div>
+
+
+            <div class="comparison-column">
+                <h3>${car2.name}</h3>
+
+                <p>
+                    Annual cost:
+                    <strong>${total2.toFixed(2)} €</strong>
+                </p>
+
+                <p>
+                    Monthly cost:
+                    <strong>${(total2 / 12).toFixed(2)} €</strong>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="comparison-difference">
+
+            <p>
+                🏆 Cheaper:
+                <strong>${cheaperCar}</strong>
+            </p>
+
+            <p>
+                Difference:
+                <strong>${difference.toFixed(2)} € / year</strong>
+            </p>
+
+        </div>
+
+    `;
+        }
+
+        fillComparisonSelects();
 
         const tireLifeKm = 20000;
 
+        function updateCarImage() {
+
+            const selectedCar =
+                document.getElementById("car").value;
+
+            const image =
+                document.getElementById("car-image");
+
+            const imageContainer =
+                document.getElementById("car-image-container");
+
+            if (selectedCar === "Lamborghini Aventador SVJ") {
+
+                image.src = "images/aventador-svj.jpg";
+                image.alt = "Lamborghini Aventador SVJ";
+
+                imageContainer.style.display = "block";
+
+            } else {
+
+                image.src = "";
+                image.alt = selectedCar;
+
+                imageContainer.style.display = "none";
+            }
+        }
+        document.getElementById("car").addEventListener(
+            "change",
+            updateCarImage
+        );
 
         function calculateCost() {
 
