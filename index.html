@@ -41,19 +41,52 @@
 
                 <select id="car">
                     <option>Alpine A110</option>
+
+                    <option>Aston Martin DBX</option>
+                    <option>Aston Martin DBS</option>
                     <option>Aston Martin V8 Vantage</option>
+
                     <option>Audi R8 V10</option>
                     <option>Audi RS6 Avant</option>
+
                     <option>BMW M2</option>
                     <option>BMW M4 Competition</option>
+                    <option>BMW M5 F90</option>
+
                     <option>Bugatti Chiron</option>
+
+                    <option>Chevrolet Corvette ZR1X</option>
+
+                    <option>Ferrari 296 GTS</option>
                     <option>Ferrari 488 Pista</option>
                     <option>Ferrari 812 Superfast</option>
+                    <option>Ferrari F40</option>
+                    <option>Ferrari SF90 Stradale</option>
+
+                    <option>Koenigsegg Agera RS</option>
+                    <option>Koenigsegg Jesko</option>
+
                     <option>Lamborghini Aventador SVJ</option>
                     <option>Lamborghini Huracán STO</option>
+                    <option>Lamborghini Murciélago SV</option>
                     <option>Lamborghini Revuelto</option>
+                    <option>Lamborghini Urus</option>
+
+                    <option>Lexus LFA</option>
+
+                    <option>McLaren 600LT</option>
                     <option>McLaren 720S</option>
+                    <option>McLaren Artura</option>
+                    <option>McLaren Senna</option>
+
+                    <option>Mercedes-AMG GT</option>
+                    <option>Mercedes-Maybach GLS</option>
+
+                    <option>Pagani Huayra BC</option>
+
+                    <option>Porsche 718 Spyder</option>
                     <option>Porsche 911 992 GT3RS</option>
+                    <option>Porsche 911 GT2 RS</option>
                     <option>Porsche 911 Turbo S</option>
                 </select>
 
@@ -178,6 +211,146 @@
                 fuel_consumption: 6.9,
                 tires: 1200
             }
+                {
+                name: "Lamborghini Urus",
+                insurance: 3500,
+                maintenance: 3000,
+                fuel_consumption: 14.1,
+                tires: 3000
+            },
+            {
+                name: "Porsche 718 Spyder",
+                insurance: 2500,
+                maintenance: 2500,
+                fuel_consumption: 11.0,
+                tires: 2500
+            },
+            {
+                name: "McLaren Senna",
+                insurance: 8000,
+                maintenance: 8000,
+                fuel_consumption: 14.0,
+                tires: 5000
+            },
+            {
+                name: "McLaren 600LT",
+                insurance: 4500,
+                maintenance: 4500,
+                fuel_consumption: 11.7,
+                tires: 3500
+            },
+            {
+                name: "Lamborghini Murciélago SV",
+                insurance: 6000,
+                maintenance: 7000,
+                fuel_consumption: 23.0,
+                tires: 5000
+            },
+            {
+                name: "Ferrari 296 GTS",
+                insurance: 4500,
+                maintenance: 4500,
+                fuel_consumption: 8.5,
+                tires: 3500
+            },
+            {
+                name: "Ferrari SF90 Stradale",
+                insurance: 6000,
+                maintenance: 6000,
+                fuel_consumption: 6.5,
+                tires: 4500
+            },
+            {
+                name: "McLaren Artura",
+                insurance: 4000,
+                maintenance: 4000,
+                fuel_consumption: 8.7,
+                tires: 3000
+            },
+            {
+                name: "Ferrari F40",
+                insurance: 10000,
+                maintenance: 12000,
+                fuel_consumption: 18.0,
+                tires: 5000
+            },
+            {
+                name: "Koenigsegg Jesko",
+                insurance: 20000,
+                maintenance: 20000,
+                fuel_consumption: 20.0,
+                tires: 15000
+            },
+            {
+                name: "Aston Martin DBS",
+                insurance: 4500,
+                maintenance: 5000,
+                fuel_consumption: 13.5,
+                tires: 3500
+            },
+            {
+                name: "Pagani Huayra BC",
+                insurance: 15000,
+                maintenance: 15000,
+                fuel_consumption: 18.0,
+                tires: 10000
+            },
+            {
+                name: "Mercedes-AMG GT",
+                insurance: 3500,
+                maintenance: 3000,
+                fuel_consumption: 12.5,
+                tires: 3000
+            },
+            {
+                name: "Porsche 911 GT2 RS",
+                insurance: 5000,
+                maintenance: 5000,
+                fuel_consumption: 12.8,
+                tires: 4500
+            },
+            {
+                name: "Mercedes-Maybach GLS",
+                insurance: 3500,
+                maintenance: 3000,
+                fuel_consumption: 11.9,
+                tires: 2500
+            },
+            {
+                name: "BMW M5 F90",
+                insurance: 2500,
+                maintenance: 2200,
+                fuel_consumption: 11.5,
+                tires: 2500
+            },
+            {
+                name: "Lexus LFA",
+                insurance: 6000,
+                maintenance: 6000,
+                fuel_consumption: 14.8,
+                tires: 4000
+            },
+            {
+                name: "Aston Martin DBX",
+                insurance: 3500,
+                maintenance: 3500,
+                fuel_consumption: 14.0,
+                tires: 3000
+            },
+            {
+                name: "Koenigsegg Agera RS",
+                insurance: 15000,
+                maintenance: 15000,
+                fuel_consumption: 14.7,
+                tires: 10000
+            },
+            {
+                name: "Chevrolet Corvette ZR1X",
+                insurance: 3500,
+                maintenance: 3000,
+                fuel_consumption: 15.0,
+                tires: 4000
+            }
         ];
 
 
@@ -197,22 +370,18 @@
             const selectedCar =
                 document.getElementById("car").value;
 
-
             const car = cars.find(
                 car => car.name === selectedCar
             );
-
 
             const fuelCost =
                 (annualKm / 100) *
                 car.fuel_consumption *
                 fuelPrice;
 
-
             const tiresCost =
                 (annualKm / tireLifeKm) *
                 car.tires;
-
 
             const annualCost =
                 car.insurance +
@@ -220,40 +389,44 @@
                 fuelCost +
                 tiresCost;
 
+            const monthlyCost =
+                annualCost / 12;
 
-            document.getElementById("result").textContent =
-                "Annual cost for " +
-                car.name +
-                ": " +
-                annualCost.toFixed(2) +
-                " €";
-
+            document.getElementById("result").innerHTML = `
+        <h2>Annual cost</h2>
+        <div class="total-cost">
+            ${annualCost.toFixed(2)} € / year
+        </div>
+        <p>
+            ≈ ${monthlyCost.toFixed(2)} € / month
+        </p>
+    `;
 
             document.getElementById("details").innerHTML = `
 
-                <h3>Cost details</h3>
+        <h3>Cost breakdown</h3>
 
-                <p>
-                    Insurance:
-                    ${car.insurance.toFixed(2)} €
-                </p>
+        <p>
+            🛡️ Insurance:
+            <strong>${car.insurance.toFixed(2)} €</strong>
+        </p>
 
-                <p>
-                    Maintenance:
-                    ${car.maintenance.toFixed(2)} €
-                </p>
+        <p>
+            🔧 Maintenance:
+            <strong>${car.maintenance.toFixed(2)} €</strong>
+        </p>
 
-                <p>
-                    Fuel:
-                    ${fuelCost.toFixed(2)} €
-                </p>
+        <p>
+            ⛽ Fuel:
+            <strong>${fuelCost.toFixed(2)} €</strong>
+        </p>
 
-                <p>
-                    Tires:
-                    ${tiresCost.toFixed(2)} €
-                </p>
+        <p>
+            🛞 Tires:
+            <strong>${tiresCost.toFixed(2)} €</strong>
+        </p>
 
-            `;
+    `;
         }
 
     </script>
